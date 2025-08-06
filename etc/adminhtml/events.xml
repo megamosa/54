@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * MagoArab OrderEnhancer Events Configuration
+ *
+ * @category    MagoArab
+ * @package     MagoArab_OrderEnhancer
+ * @author      MagoArab Team
+ * @copyright   Copyright (c) 2024 MagoArab
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <!-- Remove governorate filter observer as it causes conflicts -->
+    
+    <!-- Only use load_after for item details -->
+    <event name="sales_order_grid_collection_load_after">
+        <observer name="magoarab_add_order_items" 
+                  instance="MagoArab\OrderEnhancer\Observer\OrderItemsObserver" 
+                  disabled="false" />
+    </event>
+</config>
